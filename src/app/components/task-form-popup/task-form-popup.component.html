@@ -1,0 +1,13 @@
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <h1>New Task</h1>
+        <form class="form" [formGroup]="form" (submit)="save()">
+            <input type="text" placeholder="Name" formControlName="name">
+            <textarea formControlName="description" placeholder="Add description"></textarea>
+            <span class="buttons">
+                <button type="submit">Save</button>
+            </span>
+        </form>
+    </div>
+</div>

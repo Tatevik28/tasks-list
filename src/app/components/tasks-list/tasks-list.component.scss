@@ -1,0 +1,90 @@
+table, td, th, .tr, .td {
+  border: 1px solid black;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.add {
+    margin-left: 20px;
+    button {
+        background-color: darkturquoise;
+        font-size: 20px;
+        border-radius: 4px;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+
+        &:hover:enabled {
+            color: darkolivegreen;
+        }
+    }
+}
+
+.task-input {
+    width: 250px;
+    margin-right: 20px;
+
+    input {
+        width: 100%;
+        padding: 5px 10px;
+        height: 20px;
+        border: 1px solid grey;
+        border-radius: 4px;
+    }
+}
+.table-tasks {
+  width: 70%;
+  border-collapse: collapse;
+  display: table;
+
+  thead {
+    tr {
+      th {
+        padding: 10px;
+        text-align: left;
+      }
+    }
+  }
+
+  .table-body {
+    display: table-row-group;
+
+    .tr {
+      display: table-row !important;
+      vertical-align: middle;
+
+      .td {
+        display: table-cell !important;
+        padding: 10px;
+      }
+    }
+
+    .buttons {
+        white-space: nowrap;
+        display: flex;
+        justify-content: space-around;
+        button {
+        background-color: white;
+        border: 1px solid grey;
+        border-radius: 4px;
+        padding: 5px 10px;
+
+        &:hover:enabled {
+          color: turquoise;
+        }
+      }
+    }
+  }
+}
+
+
+button:enabled {
+    cursor: pointer;
+}
+
+
