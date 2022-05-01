@@ -1,0 +1,10 @@
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <p>Are you sure you want to delete {{name}} ?</p>
+        <span class="buttons">
+            <button (click)="confirm()">Yes</button>
+            <button (click)="closeModal()">No</button>
+        </span>
+    </div>
+</div>

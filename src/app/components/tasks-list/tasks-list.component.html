@@ -1,0 +1,70 @@
+
+<div class="container">
+    <span class="task-input">
+        <input type="text" (input)="changeValue($event)" placeholder="Add todo"/>
+    </span>
+
+    <span class="add">
+        <button (click)="addTask()" [disabled]="!addItem">+ Add New</button>
+    </span>
+
+</div>
+
+
+<table class="table-tasks">
+    <thead>
+    <tr>
+        <th (click)="sortByName()">
+            Task Name
+        </th>
+        <th>
+            Description
+        </th>
+        <th (click)="sortByStatus()">
+            Status
+        </th>
+        <th>
+            Creation Date
+        </th>
+        <th>
+            Actions
+        </th>
+    </tr>
+    </thead>
+    <div class="table-body">
+        <ng-container *ngFor="let data of tasksData, let i=index">
+            <div class="tr">
+              <span class="td">
+                {{data.name}}
+              </span>
+                <span class="td">
+                    {{data.description}}
+                </span>
+                <span class="td">
+                    {{data.status}}
+                </span>
+                <span class="td">
+                    {{data.creation_date}}
+                </span>
+                <span class="buttons">
+                    <button (click)="edit(data)" [disabled]="data.status === 'done'">Done</button>
+                    <button (click)="openModal(data)">Remove</button>
+                </span>
+            </div>
+        </ng-container>
+    </div>
+</table>
+
+<app-confirmation-modal *ngIf="modalTextName"
+                        [name]="modalTextName"
+                        (modalClosed)="closeModal()"
+                        (confirmed)="onDelete()">
+</app-confirmation-modal>
+
+<app-task-form-popup *ngIf="openPopup"
+                     [name]="addItem"
+                     (popupClosed)="closePopup()"
+                     (formValue)="createTask($event)"
+                    >
+</app-task-form-popup>
+
