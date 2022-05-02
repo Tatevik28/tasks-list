@@ -11,7 +11,7 @@ import {TasksListComponent} from "./components/tasks-list/tasks-list.component";
 import {TaskFormPopupComponent} from './components/task-form-popup/task-form-popup.component';
 import { LoginComponent } from './components/login/login.component';
 import {AppRoutingModule} from "./app-routing.module";
-import {HttpClient, HttpHandler} from "@angular/common/http";
+import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 
 @NgModule({
     declarations: [
@@ -27,6 +27,7 @@ import {HttpClient, HttpHandler} from "@angular/common/http";
     ReactiveFormsModule,
     CommonModule,
     AppRoutingModule,
+    HttpClientModule,
     StoreModule.forRoot({tasks: tasksReducer}),
   ],
   providers: [HttpClient],

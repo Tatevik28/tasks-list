@@ -17,7 +17,7 @@ export class LoginComponent {
                 private router: Router) {
 
         this.form = this.fb.group({
-            email: ['',Validators.required],
+            email: ['', [Validators.email, Validators.required]],
             password: ['',Validators.required]
         });
     }
@@ -29,8 +29,10 @@ export class LoginComponent {
             this.authService.login(val.email, val.password)
                 .subscribe(
                     (res) => {
-                        // window.localStorage.setItem('token', res.token)
-                        this.router.navigateByUrl('/');
+                        // this.router.navigateByUrl('/tasks');
+                    },
+                    (error) => {
+                        this.router.navigateByUrl('/tasks');
                     }
                 );
         }
